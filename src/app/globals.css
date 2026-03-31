@@ -1,0 +1,121 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #0A0E1A;
+  --foreground: #E5E7EB;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+}
+
+/* Bitcoin-themed scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0A0E1A;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #F7931A40;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #F7931A80;
+}
+
+/* Glowing text utility */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-glow {
+    text-shadow: 0 0 20px #F7931A60, 0 0 40px #F7931A30;
+  }
+
+  .text-glow-strong {
+    text-shadow: 0 0 30px #F7931A80, 0 0 60px #F7931A40, 0 0 100px #F7931A20;
+  }
+
+  .border-glow {
+    box-shadow: 0 0 15px #F7931A30, inset 0 0 15px #F7931A10;
+  }
+
+  .card-glow {
+    box-shadow: 0 0 20px #F7931A15, 0 4px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #F7931A 0%, #FFB84D 50%, #F7931A 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
+
+/* Node mesh background */
+.mesh-bg {
+  background-image:
+    radial-gradient(ellipse at 20% 50%, #F7931A08 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, #F7931A06 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 80%, #1E40AF08 0%, transparent 50%);
+}
+
+/* Animated grid background */
+.grid-bg {
+  background-image:
+    linear-gradient(#F7931A06 1px, transparent 1px),
+    linear-gradient(90deg, #F7931A06 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* Stats counter animation */
+@keyframes countIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-count-in {
+  animation: countIn 0.8s ease-out forwards;
+}
+
+/* Shimmer effect for loading states */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    #F7931A15 50%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s linear infinite;
+}
+
+/* Page transition */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.4s ease-out;
+}
