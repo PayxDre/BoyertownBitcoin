@@ -11,6 +11,11 @@ import {
   ChevronRight,
   Rocket,
   Trophy,
+  DollarSign,
+  Shield,
+  CheckCircle2,
+  FileText,
+  MapPin,
 } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 import { PRECEDENTS } from "@/lib/constants";
@@ -86,9 +91,9 @@ export default function PrecedentsPage() {
 
                 {/* Body */}
                 <div className="p-8">
-                  <div className="flex items-start gap-5">
+                  <div className="flex items-start gap-5 mb-6">
                     <div
-                      className="p-4 rounded-2xl flex-shrink-0"
+                      className="p-4 rounded-2xl flex-shrink-0 hidden sm:block"
                       style={{
                         backgroundColor: `${precedent.color}10`,
                         color: precedent.color,
@@ -117,6 +122,68 @@ export default function PrecedentsPage() {
                       </div>
                     </div>
                   </div>
+
+                  {/* How gains are used */}
+                  {precedent.howGainsAreUsed && (
+                    <div className="bg-navy/60 rounded-xl p-5 mb-4 border border-navy-border">
+                      <div className="flex items-center gap-2 mb-2">
+                        <DollarSign className="w-4 h-4 text-bitcoin" />
+                        <span className="text-xs font-bold text-bitcoin uppercase tracking-wider">
+                          How Gains Are Realized
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-400 leading-relaxed">
+                        {precedent.howGainsAreUsed}
+                      </p>
+                    </div>
+                  )}
+
+                  {/* Key rules */}
+                  {precedent.keyRules && (
+                    <div className="bg-navy/60 rounded-xl p-5 border border-navy-border">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Shield className="w-4 h-4" style={{ color: precedent.color }} />
+                        <span className="text-xs font-bold uppercase tracking-wider" style={{ color: precedent.color }}>
+                          Key Rules &amp; Guardrails
+                        </span>
+                      </div>
+                      <ul className="space-y-1.5">
+                        {precedent.keyRules.map((rule: string, j: number) => (
+                          <li key={j} className="flex items-start gap-2 text-sm text-gray-400">
+                            <CheckCircle2 className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: precedent.color }} />
+                            {rule}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+
+                  {/* Roswell legal mechanism (special section) */}
+                  {precedent.legalMechanism && (
+                    <div className="mt-4 bg-green-500/5 rounded-xl p-5 border border-green-500/20">
+                      <div className="flex items-center gap-2 mb-3">
+                        <FileText className="w-4 h-4 text-green-400" />
+                        <span className="text-xs font-bold text-green-400 uppercase tracking-wider">
+                          Step-by-Step: How Roswell Did It
+                        </span>
+                      </div>
+                      <ol className="space-y-2">
+                        {precedent.legalMechanism.steps.map((step: string, j: number) => (
+                          <li key={j} className="flex items-start gap-3 text-sm text-gray-400">
+                            <span className="flex-shrink-0 w-6 h-6 rounded-full bg-green-500/20 text-green-400 text-xs font-bold flex items-center justify-center mt-0.5">
+                              {j + 1}
+                            </span>
+                            {step}
+                          </li>
+                        ))}
+                      </ol>
+                      <div className="mt-4 bg-navy/60 rounded-lg p-4 border border-green-500/10">
+                        <p className="text-sm text-green-400/90 font-medium leading-relaxed">
+                          {precedent.legalMechanism.keyInsight}
+                        </p>
+                      </div>
+                    </div>
+                  )}
                 </div>
               </motion.div>
             ))}
@@ -190,6 +257,93 @@ export default function PrecedentsPage() {
                 Help Make It Happen
                 <ArrowRight className="w-5 h-5" />
               </Link>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Boyertown's Roswell-Inspired Pathway */}
+      <section className="py-16 mesh-bg">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            badge="The Roswell Model for Boyertown"
+            title="How Boyertown Could Do Exactly What Roswell Did"
+            subtitle="Roswell proved that a small city can establish a Bitcoin reserve without new legislation, without taxpayer risk, and without controversy. Here's how Boyertown could follow the same playbook."
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-navy-card border border-bitcoin/20 rounded-2xl p-8 md:p-10"
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <MapPin className="w-6 h-6 text-bitcoin" />
+              <h3 className="text-xl font-bold text-white">
+                The Boyertown Bitcoin Reserve — A Practical Path
+              </h3>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              {[
+                {
+                  step: "1",
+                  title: "Seed the Reserve Through Donation",
+                  description: "Like Roswell, the simplest way to start is through a private Bitcoin donation — zero taxpayer funds at risk. A community member or supporter donates BTC to the borough. Under Pennsylvania law, boroughs have the power to receive gifts and donations of property (PA Borough Code §1502).",
+                },
+                {
+                  step: "2",
+                  title: "Borough Solicitor Confirms Legal Authority",
+                  description: "Roswell's City Attorney confirmed that existing municipal property law allowed the city to accept Bitcoin — no special legislation needed. Boyertown's solicitor would similarly review PA Borough Code to confirm the borough's authority to accept and hold digital property.",
+                },
+                {
+                  step: "3",
+                  title: "Council Formally Accepts the Gift",
+                  description: "Borough Council passes a resolution recognizing the Bitcoin donation and establishing a Strategic Bitcoin Reserve Fund — a designated account on the borough's books. This is a public, transparent vote at a regular council meeting.",
+                },
+                {
+                  step: "4",
+                  title: "Adopt Protective Guardrails",
+                  description: "Following Roswell's model, Council adopts an ordinance with clear rules: a defined lockup period (e.g., 5–10 years), a market value threshold before any spending (e.g., $100K+), a maximum drawdown percentage (e.g., 20% every 5 years), and required unanimous or supermajority Council approval for any sale.",
+                },
+                {
+                  step: "5",
+                  title: "Secure Institutional Custody",
+                  description: "Bitcoin is held in institutional-grade custody (regulated custodians with multi-signature security, insurance, and audit trails). The borough never directly handles private keys — just as Texas uses third-party custodians.",
+                },
+                {
+                  step: "6",
+                  title: "Transparent Reporting & Growth",
+                  description: "Publish quarterly reports on the reserve's value. Accept additional donations and sponsorships over time. If the reserve appreciates past the threshold, Council can vote to sell a controlled portion to fund specific community needs — roads, infrastructure, emergency services.",
+                },
+              ].map((item, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, x: -20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.1 }}
+                  className="flex items-start gap-4"
+                >
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-bitcoin/20 text-bitcoin text-sm font-bold flex items-center justify-center mt-1">
+                    {item.step}
+                  </span>
+                  <div>
+                    <h4 className="text-white font-semibold mb-1">{item.title}</h4>
+                    <p className="text-sm text-gray-400 leading-relaxed">{item.description}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="bg-bitcoin/5 border border-bitcoin/20 rounded-xl p-5">
+              <p className="text-sm text-gray-300 leading-relaxed">
+                <span className="text-bitcoin font-bold">The key insight from Roswell:</span>{" "}
+                You don&apos;t need state legislation. You don&apos;t need taxpayer money. You don&apos;t need
+                to take a big risk. A single donated Bitcoin, a solicitor&apos;s opinion, a council
+                vote, and sensible guardrails — that&apos;s all it took to make history. Boyertown
+                could do the same and become Pennsylvania&apos;s first.
+              </p>
             </div>
           </motion.div>
         </div>

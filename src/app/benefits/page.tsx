@@ -12,6 +12,9 @@ import {
   Lock,
   Sparkles,
   CheckCircle2,
+  Landmark,
+  Star,
+  Building,
 } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
 
@@ -176,6 +179,153 @@ export default function BenefitsPage() {
             <div className="px-6 py-4 bg-navy/40 text-xs text-gray-500">
               Projections are illustrative only. Bitcoin is volatile and past performance does not
               guarantee future results. Conservative assumes 20% CAGR; moderate assumes 35%.
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* How Bitcoin Reserves Actually Work */}
+      <section className="py-16">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionHeader
+            badge="Important Context"
+            title={`"But Bitcoin Doesn't Pay Interest..."`}
+            subtitle="You're right — and that's one of the first questions people ask. Here's how Bitcoin reserves actually generate value for governments."
+          />
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-navy-card border border-bitcoin/20 rounded-2xl p-8 md:p-10 mb-8"
+          >
+            <h3 className="text-xl font-bold text-white mb-4">
+              Bitcoin Is a Store of Value — Like Gold, Not Like a Bond
+            </h3>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              T-bills and CDs generate <span className="text-white font-medium">yield</span> — small,
+              steady interest payments. Bitcoin does not. It pays no dividends, no interest, no coupons.
+              So why would a government hold it?
+            </p>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              For the same reason governments hold <span className="text-bitcoin font-medium">gold</span>:
+              not for yield, but for <span className="text-white font-medium">appreciation</span>. Bitcoin&apos;s
+              fixed supply of 21 million coins makes it inherently scarce. As demand grows and supply stays
+              fixed, the value rises over time — often dramatically. The U.S. government itself has acknowledged
+              losing over <span className="text-bitcoin font-medium">$17 billion</span> by selling seized Bitcoin
+              too early rather than holding it.
+            </p>
+            <p className="text-gray-400 leading-relaxed">
+              A Bitcoin reserve doesn&apos;t generate cash flow while you hold it.
+              It generates value when the asset <span className="text-white font-medium">appreciates
+              and you sell a portion</span> — or when its presence on the balance sheet strengthens your
+              overall financial position.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-navy-card border border-navy-border rounded-2xl p-8 md:p-10 mb-8"
+          >
+            <h3 className="text-xl font-bold text-white mb-6">
+              How Governments Plan to Use Their Bitcoin Reserves
+            </h3>
+
+            <div className="space-y-6">
+              <div className="bg-navy/60 rounded-xl p-5 border border-blue-500/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Landmark className="w-5 h-5 text-blue-400" />
+                  <span className="text-sm font-bold text-blue-400 uppercase tracking-wider">U.S. Federal Government</span>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  The Strategic Bitcoin Reserve (Executive Order 14233) holds seized Bitcoin as a{" "}
+                  <span className="text-white font-medium">permanent reserve asset — &quot;not to be sold.&quot;</span>{" "}
+                  The rationale: Bitcoin strengthens the national balance sheet as it appreciates, similar
+                  to gold reserves. The BITCOIN Act of 2025 envisions a 20-year minimum holding period,
+                  after which holdings may be sold <span className="text-white font-medium">only to retire federal debt</span>.
+                  Think of it as a long-term savings account for the nation.
+                </p>
+              </div>
+
+              <div className="bg-navy/60 rounded-xl p-5 border border-bitcoin/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Star className="w-5 h-5 text-bitcoin" />
+                  <span className="text-sm font-bold text-bitcoin uppercase tracking-wider">Texas (SB 21)</span>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Texas takes a more active approach. The Comptroller is authorized to{" "}
+                  <span className="text-white font-medium">buy, hold, sell, stake, and manage</span>{" "}
+                  Bitcoin using the prudent investor standard. The law explicitly allows temporary
+                  liquidation for cash management, with proceeds returned to the reserve. An advisory
+                  committee of crypto investment experts guides strategy. Texas can realize gains by{" "}
+                  <span className="text-white font-medium">selling portions when the price appreciates</span>{" "}
+                  to fund state priorities.
+                </p>
+              </div>
+
+              <div className="bg-navy/60 rounded-xl p-5 border border-green-500/20">
+                <div className="flex items-center gap-2 mb-2">
+                  <Building className="w-5 h-5 text-green-400" />
+                  <span className="text-sm font-bold text-green-400 uppercase tracking-wider">Roswell, NM (Municipal)</span>
+                </div>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  Roswell&apos;s ordinance includes the most relevant model for Boyertown. Their reserve has a{" "}
+                  <span className="text-white font-medium">10-year lockup period</span>. Once the fund
+                  exceeds <span className="text-white font-medium">$1 million in market value</span>,
+                  the city can access up to <span className="text-white font-medium">21% every five years</span>{" "}
+                  — but only with unanimous Council approval. The intended uses: subsidizing water bills
+                  for elderly residents and funding emergency disaster response. In other words, they hold,
+                  let it appreciate, and then <span className="text-white font-medium">sell a controlled
+                  portion to fund specific community needs</span>.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="bg-navy-card border border-navy-border rounded-2xl p-8 md:p-10 mb-8"
+          >
+            <h3 className="text-xl font-bold text-white mb-4">
+              What This Means for Boyertown
+            </h3>
+            <p className="text-gray-400 leading-relaxed mb-4">
+              A Boyertown Bitcoin reserve would work the same way: the borough would allocate a small
+              amount (1–5% of reserves), hold it as a long-term strategic asset, and — if and when
+              the value appreciates significantly — <span className="text-white font-medium">sell a portion
+              through a controlled process approved by Council</span> to fund infrastructure projects,
+              reduce tax burdens, or build an emergency fund.
+            </p>
+            <div className="bg-navy/60 rounded-xl p-5">
+              <h4 className="text-sm font-bold text-bitcoin uppercase tracking-wider mb-3">
+                Example: The Roswell Model Applied to Boyertown
+              </h4>
+              <ul className="space-y-2 text-sm text-gray-400">
+                <li className="flex items-start gap-2">
+                  <span className="text-bitcoin font-bold mt-0.5">1.</span>
+                  Borough allocates $30,000 (5% of General Fund midpoint) to Bitcoin
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bitcoin font-bold mt-0.5">2.</span>
+                  Bitcoin is held in institutional custody with a defined lockup period (e.g., 5–10 years)
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bitcoin font-bold mt-0.5">3.</span>
+                  If Bitcoin appreciates (as it has historically), the reserve&apos;s value grows on the borough&apos;s balance sheet
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bitcoin font-bold mt-0.5">4.</span>
+                  After the lockup, Council can vote to sell a defined portion (e.g., up to 20%) to fund a specific project
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-bitcoin font-bold mt-0.5">5.</span>
+                  The remaining reserve continues appreciating — a perpetual strategic asset for the borough
+                </li>
+              </ul>
             </div>
           </motion.div>
         </div>

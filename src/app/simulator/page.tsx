@@ -361,6 +361,44 @@ export default function SimulatorPage() {
             )}
           </div>
 
+          {/* How gains are realized */}
+          <div className="bg-navy-card border border-bitcoin/20 rounded-2xl p-6 md:p-8 mb-10">
+            <h3 className="text-lg font-bold text-white mb-2">
+              &quot;But How Would Boyertown Actually Access These Gains?&quot;
+            </h3>
+            <p className="text-sm text-gray-400 mb-4">
+              Bitcoin doesn&apos;t pay interest or dividends. It&apos;s a <span className="text-white font-medium">store
+              of value</span> — like gold, not like a bond. Gains are realized by{" "}
+              <span className="text-bitcoin font-medium">selling a portion of the appreciated holdings</span> through
+              a controlled, Council-approved process.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-navy/60 rounded-xl p-4 border border-navy-border">
+                <div className="text-sm font-bold text-white mb-1">Hold Phase</div>
+                <p className="text-xs text-gray-500">
+                  Bitcoin sits in institutional custody during a defined lockup period (e.g., 5–10 years).
+                  It appears on the borough&apos;s balance sheet, strengthening its financial position as the value grows.
+                </p>
+              </div>
+              <div className="bg-navy/60 rounded-xl p-4 border border-navy-border">
+                <div className="text-sm font-bold text-bitcoin mb-1">Threshold Met</div>
+                <p className="text-xs text-gray-500">
+                  When the reserve exceeds a defined value (e.g., $100K+), and the lockup
+                  period ends, Borough Council can consider accessing funds. Roswell set their
+                  threshold at $1 million.
+                </p>
+              </div>
+              <div className="bg-navy/60 rounded-xl p-4 border border-navy-border">
+                <div className="text-sm font-bold text-green-400 mb-1">Controlled Sale</div>
+                <p className="text-xs text-gray-500">
+                  Council votes to sell a limited portion (e.g., up to 20% every 5 years) to fund
+                  a specific project. The rest stays invested, continuing to appreciate. This is
+                  exactly how Roswell&apos;s ordinance and Texas SB 21 work.
+                </p>
+              </div>
+            </div>
+          </div>
+
           {/* All Scenarios Comparison */}
           <div className="bg-navy-card border border-navy-border rounded-2xl p-6 mb-10">
             <h3 className="text-lg font-bold text-white mb-6">
